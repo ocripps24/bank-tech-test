@@ -7,6 +7,11 @@ describe Account do
       account = Account.new
       expect { account.deposit(1) }.to change { account.balance }.by(1)
     end
+
+    it 'Records the transaction on the ledger' do
+      account = Account.new
+      expect { account.deposit(1) }.to change { account.ledger.length }.by(1)
+    end
   end
 
   describe '#withdraw' do
@@ -15,6 +20,12 @@ describe Account do
         account = Account.new
         account.deposit(1)
         expect { account.withdraw(1) }.to change { account.balance }.by(-1)
+      end
+
+      it 'Records the transaction on the ledger' do
+        account = Account.new
+        account.deposit(1)
+        expect { account.withdraw(1) }.to change { account.ledger.length }.by(1)
       end
     end
 
