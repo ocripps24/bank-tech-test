@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'account'
 
-describe 'Account' do
+describe 'Account - Features' do
   context 'Deposit' do
     it 'Enables a user to put money into their account' do
       account = Account.new
