@@ -8,4 +8,11 @@ describe Account do
       expect { account.deposit(1) }.to change { account.balance }.by(1)
     end
   end
+
+  describe '#withdraw' do
+    it 'subtracts the argument value from the balance' do
+      account = Account.new
+      expect { account.withdraw(1) }.to change { account.balance }.by(-1)
+    end
+  end
 end
